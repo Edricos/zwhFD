@@ -5,15 +5,18 @@ import matplotlib.pyplot as plt
 from scipy.spatial.distance import cdist
 from sklearn.cluster import KMeans
 from fcmeans import FCM
+from sklearn.preprocessing import minmax_scale
+
 
 # 1.利用pandas读入数据
 # data = pd.read_csv('wine.csv')# data_path换成你的需要聚类的数据所在路径，我的数据没有表头，所以设置header=None
-data = pd.read_csv('wine.csv')
-x = data.iloc[:,1:14] # 葡萄酒数据
-# x = data.iloc[:,1:5] #鸢尾花数据
-print(x.head())
+data = pd.read_csv('iris.csv')
+# x = data.iloc[:,1:14] # 葡萄酒数据
+x = data.iloc[:,1:5] #鸢尾花数据
+# print(x.head())
 x = x.to_numpy()
-
+# print(x)
+x = minmax_scale(x, axis=0)
 
 # 2.绘制手肘图
 dispersions = []

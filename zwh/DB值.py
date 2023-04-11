@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.cluster import KMeans
 from fcmeans import FCM
-
+from sklearn.preprocessing import minmax_scale
 data = pd.read_csv('iris.csv')
 x = data.iloc[:,1:5]
 print(x.head())
 # data = pd.read_csv('wine.csv')
 # x = data.iloc[:,1:14]
 x = x.to_numpy()
+x = minmax_scale(x, axis=0)
 
 scores = []
 for k in range(2, 10):

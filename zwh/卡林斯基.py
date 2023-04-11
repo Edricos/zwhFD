@@ -4,8 +4,8 @@ from sklearn import metrics
 from sklearn.cluster import KMeans
 from fcmeans import FCM
 
-data = pd.read_csv('wine.csv')
-x = data.iloc[:,1:14]
+data = pd.read_csv('iris.csv')
+x = data.iloc[:,1:5]
 x = x.to_numpy()
 
 scores = []
@@ -22,6 +22,6 @@ print(scores)
 plt.plot(range(2, 10), scores, 'bx-')
 plt.xlabel('k')
 plt.ylabel('the Calinski Carabasz Score')
-plt.title('the CH Method')
+plt.title('the Calinski Carabasz Method')
 plt.show()
 

@@ -11,6 +11,8 @@ x = data.iloc[:,1:5]
 print(x.head())
 
 x = x.to_numpy()
+from sklearn.preprocessing import minmax_scale
+x = minmax_scale(x, axis=0)
 
 silhouette_scores = []
 for k in range(2, 10):
@@ -25,5 +27,5 @@ print(silhouette_scores)
 plt.plot(range(2, 10), silhouette_scores, 'bx-')
 plt.xlabel('Number of Clusters (k)')
 plt.ylabel('silhouette')
-plt.title('the Silhouette Method')
+plt.title('The silhouette score')
 plt.show()
